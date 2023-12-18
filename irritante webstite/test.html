@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snelle en veelvuldige draaiingen</title>
+  <style>
+    /* Standaardstijl voor het plaatje */
+    #ronddraaiendPlaatje {
+      width: 100px; /* Pas de breedte van het plaatje aan zoals nodig */
+      height: 100px; /* Pas de hoogte van het plaatje aan zoals nodig */
+      transition: transform 0.05s ease; /* Overgangseffect voor het draaien van het plaatje */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hier is het plaatje -->
+<img id="ronddraaiendPlaatje" src="jouw_afbeelding.png" alt="Ronddraaiend plaatje" onclick="draaiPlaatje()">
+
+<!-- Hier is de JavaScript-code voor het snel en vaak draaien van het plaatje -->
+<script>
+  var draaihoek = 0;
+
+  function draaiPlaatje() {
+    var plaatje = document.getElementById('ronddraaiendPlaatje');
+    draaihoek += 360; // Verhoog de draaihoek met 360 graden (één volledige cirkel)
+
+    // Stel de nieuwe draaihoek in met een overgangseffect
+    plaatje.style.transform = 'rotate(' + draaihoek + 'deg)';
+
+    // Herhaal het draaiproces na een korte vertraging
+    setTimeout(function() {
+      draaiPlaatje();
+    }, 50); // Verander deze waarde om de snelheid van de draaiingen aan te passen
+  }
+
+</body>
+</html>
